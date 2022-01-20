@@ -59,4 +59,23 @@ public class TestClass extends BaseTest {
         driver.quit();
     }
 
+    @Test
+    void validCredsTest() throws Exception {
+
+        driver.get(baseURL);
+        homePage = new HomePage(driver);
+        homePage.clickGmailLink();
+        gmailHomepage = new GmailHomepage(driver);
+        gmailHomepage.clickSignInButton();
+        gmailSignInPage = new GmailSignInPage(driver);
+        gmailSignInPage.enterTextIntoEmailField("clairtest12345@gmail.com");
+        gmailSignInPage.clickNext();
+        gmailPasswordPage = new GmailPasswordPage(driver);
+        gmailPasswordPage.enterTextIntoPasswordField("12345");
+        gmailPasswordPage.clickNext();
+        Assert.assertFalse(gmailPasswordPage.isErrorMessageDisplayed());
+        // two step verification (TO DO)
+        //Assert.assertTrue(loggedInGmailHomepage.getUrl().contains("https://mail.google.com/mail/u/0/#inbox"));
+        driver.quit();
+    }
 }

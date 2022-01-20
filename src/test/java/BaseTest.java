@@ -13,7 +13,7 @@ public class BaseTest {
 
         Reporter.log("=====Browser Session Started=====", true);
 
-        System.setProperty("webdriver.chrome.driver", "/Users/ryananderson/Downloads/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/Users/tomcarlson/Downloads/chromedriver");
 
         driver = new ChromeDriver();
 
